@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>邦忙登記系統</title>
+
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <style>
     * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
@@ -44,34 +45,26 @@
         <input type="text" id="year">
       </div>
       <div class="form-group">
-        <label>Firm</label>
-        <input type="text" id="firm">
-      </div>
-      <div class="form-group">
-        <label>Series</label>
-        <input type="text" id="series">
+        <label>Firm / Series</label>
+        <input type="text" id="firmSeries">
       </div>
       <div class="form-group">
         <label>Name</label>
         <input type="text" id="name" required>
       </div>
       <div class="form-group">
-        <label>Date</label>
-        <input type="text" id="date">
+        <label>Cost</label>
+        <input type="text" id="cost">
       </div>
       <div class="form-group">
-        <label>Complement</label>
-        <input type="text" id="comment">
-      </div>
-      <div class="form-group">
-        <label>Details</label>
-        <textarea id="detail" rows="2"></textarea>
+        <label>Detail</label>
+        <input type="text" id="detail">
       </div>
 
       <div class="btn-group">
         <button type="submit" class="btn-primary">SAVE</button>
       </div>
-    </form>
+    </form
   </div>
 
   <div class="card">
@@ -107,12 +100,10 @@
         div.innerHTML = `
           <button class="delete-btn" onclick="deleteCard(${index})">Delete</button>
           <p><strong>Year:</strong> ${item['Year'] || '-'}</p>
-          <p><strong>Firm：</strong>${item['Firm'] || '-'}</p>
-          <p><strong>Series：</strong>${item['Series'] || '-'}</p>
-          <p><strong>Name：</strong>${item['Name'] || '-'}</p>
-          <p><strong>Date：</strong>${item['Date'] || '-'}</p>
-          <p><strong>Complement：</strong>${item['Complement'] || '-'}</p>
-          <p><strong>Details：</strong>${item['Details'] || '-'}</p>
+          <p><strong>Firm / Series:</strong> ${item['Firm / Series'] || '-'}</p>
+          <p><strong>Name:</strong> ${item['Name'] || '-'}</p>
+          <p><strong>Cost:</strong> ${item['Cost'] || '-'}</p>
+          <p><strong>Detail:</strong> ${item['Detail'] || '-'}</p>
         `;
         listContainer.appendChild(div);
       });
@@ -122,12 +113,10 @@
       e.preventDefault();
       const newCard = {
         "Year": document.getElementById('year').value,
-        "Firm": document.getElementById('firm').value,
-        "Series": document.getElementById('series').value,
+        "Firm / Series": document.getElementById('firmSeries').value,
         "Name": document.getElementById('name').value,
-        "Date": document.getElementById('date').value,
-        "Complement": document.getElementById('comment').value,
-        "Details": document.getElementById('detail').value
+        "Cost": document.getElementById('cost').value,
+        "Detail": document.getElementById('detail').value,
       };
 
       cards.push(newCard);
